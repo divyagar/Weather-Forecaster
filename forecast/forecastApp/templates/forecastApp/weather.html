@@ -1,0 +1,64 @@
+{% extends "forecastApp/base.html" %}
+{% load static %}
+{% load extraTags %}
+{% block title %}
+     weather
+{% endblock title %}
+
+{% block extrastyles %}
+    <link rel = "stylesheet" type = "text/css" href = "{% static '/forecastApp/spreadsheets/weather.css' %}">
+{% endblock extrastyles %}
+
+{% block content %}
+    <div id = "main">
+        <div>
+            <h3> {{ data.city.name }} </h3>
+        </div>
+        <div>
+            <div id = "coordImg">
+                <img src = "{% static '/forecastApp/media/coord.png' %}" />
+            </div>
+            <div>
+                Longitude : {{ data.city.coord.lon }} <br/>
+                Latitude : {{ data.city.coord.lat }}
+            </div>
+        </div>
+        <div>
+            <img src = "http://openweathermap.org/img/wn/{{data.list.0.weather.0.icon}}@2x.png" /><br/>
+            {{ data.list.0.weather.0.main }}
+        </div>
+        <div>
+            <b>Temperature</b> : {{ data.list.0.main.temp|kToC }}C<br>
+            <b>Minimum temperature</b> : {{ data.list.0.main.temp_min|kToC }} C<br>
+            <b>Maximum temperature</b> : {{ data.list.0.main.temp_max|kToC}} C
+        </div>
+        <div>
+            <img src = "{% static '/forecastApp/media/pressure.png' %}" id = "pressureImg"/> <br/>
+            Pressure : {{ data.list.0.main.pressure }}<br />
+            <img src = "{% static '/forecastApp/media/humidity.png' %}" id = "humidityImg"/> <br/>
+            Humidity : {{ data.list.0.main.humidity }}<br/>
+            Visibility : {{ data.list.0.visibility }} <br/>
+            Wind speed : {{ data.list.0.wind.speed }}
+        </div>
+        <div id = "nextWeathers">
+            {% for i in sperange %}
+                {% with lookup_result=data.list|lookup:i %}
+                    <div>
+                        <img src = "http://openweathermap.org/img/wn/{{lookup_result.weather.0.icon}}@2x.png" /><br/>
+                        <div>
+                            {{ lookup_result.weather.0.main }}<br/>
+                            {{ lookup_result.main.temp|kToC }} C<br/>
+                            {% with lst=lookup_result.dt_txt|split_str %}
+                                {{ lst.0 }}<br/>
+                                {{ lst.1 }}<br/>
+                            {% endwith %}
+                        </div>
+
+                    </div>
+                {% endwith %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
+
+

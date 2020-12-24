@@ -1,0 +1,22 @@
+{% extends "forecastApp/base.html" %}
+{% load static %}
+{% block extrastyles %}
+    <link rel = "stylesheet" type = "text/css" href = "{% static 'forecastApp/spreadsheets/search.css' %}" />
+{% endblock extrastyles %}
+
+{% block content %}
+    <div class = "search">
+    <form action="{% url 'weather' %}" class="search-bar">
+        <input type="search" name="city" placeholder="Place name">
+        <button class="search-btn" type="submit">
+            <span>Search</span>
+        </button>
+    </form>
+    <form action="{% url 'weather' %}" class="search-bar">
+        <input type="search" name="coord" placeholder="Place coordinates(separated by commas)">
+        <button class="search-btn" type="submit">
+            <span>Search</span>
+        </button>
+    </form>
+        </div>
+{% endblock content %}

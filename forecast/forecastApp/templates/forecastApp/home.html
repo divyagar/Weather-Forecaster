@@ -1,0 +1,25 @@
+{% extends "forecastApp/base.html" %}
+{% load static %}
+{% block extrastyles %}
+    <link rel = "stylesheet" type = "text/css" href = "{% static '/forecastApp/spreadsheets/home.css' %}">
+{% endblock extrastyles %}
+
+{% block content %}
+    <div id = "main">
+      <h2>Weather of Most famous cities</h2>
+      <ul>
+        <li><a href="{% url 'weather' %}?city=jaipur">Weather of Jaipur, India</a></li>
+        <li><a href="{% url 'weather' %}?city=bangalore">Weather of Bangalore, Karnataka</a></li>
+        <li><a href="{% url 'weather' %}?city=london">Weather of London, England</a></li>
+        <li><a href="{% url 'weather' %}?city=new york  ">Weather of New York City, USA</a></li>
+        <li><a href="{% url 'weather' %}?city=paris">Weather of Paris, France</a></li>
+        <li><a href="{% url 'weather' %}?city=tokyo">Weather of Tokyo, Japan</a></li>
+        <li><a href="{% url 'weather' %}?city=moscow">Weather of Moscow, Russia</a></li>
+        <li><a href="{% url 'weather' %}?city=dubai">Weather of Dubai, United Arab Emirates</a></li>
+        <li><a href="{% url 'weather' %}?city=singapore">Weather of Singapore, Republic of Singapore</a></li>
+        <li><a href="{% url 'weather' %}?city=barcelona">Weather of Barcelona, Spain</a> </li>
+        <li><a href="{% url 'weather' %}?city=los angeles">Weather of Los Angeles, USA </a></li>
+        <li><a href="{% url 'weather' %}?city=rome">Weather of Rome, Italy </a></li>
+      </ul>
+    </div>
+{% endblock content %}
