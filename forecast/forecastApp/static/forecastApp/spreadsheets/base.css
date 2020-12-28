@@ -1,0 +1,32 @@
+*{
+    margin : 0px;
+    padding : 0px;
+}
+
+header{
+    text-align : center;
+    background-color: #565264;
+    color: #f4f3ee;
+    height : 100px;
+}
+
+header div h1{
+    font-size : 35px;
+}
+
+header div{
+    display : inline-block;
+    margin : 20px 100px;
+}
+
+
+.nav a{
+    color: #f4f3ee;
+    text-decoration : none;
+}
+
+footer{
+    text-align : center;
+    background-color: #565264;
+    color: #f4f3ee;
+}

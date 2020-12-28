@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel = "stylesheet" type = "text/css" href = "{% static 'forecastApp/spreadsheets/error.css' %}"/>
+    <title>Error page</title>
+</head>
+<body>
+    <div class = 'code'> {{ cod }} </div>
+    <div class = "message"> {{ message }}</div>
+</body>
+</html>

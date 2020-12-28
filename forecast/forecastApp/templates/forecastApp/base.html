@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %} {% endblock title %}</title>
+    {% load static %}
+    <link rel = "stylesheet" type = "text/css" href = "{% static '/forecastApp/spreadsheets/base.css' %}">
+    {% block extrastyles %}
+    {% endblock %}
+  </head>
+<body>
+  <header>
+    <div class = "nav">
+      <a href = "/forecast/home"> Home </a>
+    </div>
+    <div>
+      <h1>Weather Forecaster</h1>
+    </div>
+    <div class = "nav">
+      <a href = "/forecast/search"> Search </a>
+    </div>
+  </header>
+  <main>
+    {% block content %}
+
+    {% endblock %}
+  </main>
+  <footer>
+    <div>
+      Copyright &copy; 2020
+    </div>
+  </footer>
+</body>
+</html>
